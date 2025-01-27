@@ -11,7 +11,6 @@ const toggleMenu = () => {
 </script>
 
 <template>
-
   <div class="bg-gray-800 text-white">
     <!-- ナビゲーションバー -->
     <nav class="flex items-center justify-between p-4">
@@ -19,9 +18,24 @@ const toggleMenu = () => {
       <div class="text-xl font-bold">Logo</div>
 
       <!-- ハンバーガーメニュー（狭い画面用） -->
-      <button class="block lg:hidden p-2" id="menu-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      <button
+          class="block lg:hidden p-2"
+          @click="toggleMenu"
+          :aria-expanded="isMenuOpen"
+      >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+          <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+          />
         </svg>
       </button>
 
@@ -35,7 +49,10 @@ const toggleMenu = () => {
     </nav>
 
     <!-- ハンバーガーメニューの展開部分 -->
-    <ul class="hidden flex-col space-y-2 p-4 lg:hidden" id="mobile-menu">
+    <ul
+        v-if="isMenuOpen"
+        class="flex flex-col space-y-2 p-4 lg:hidden"
+    >
       <li><a href="#" class="block hover:text-gray-300">Home</a></li>
       <li><a href="#" class="block hover:text-gray-300">About</a></li>
       <li><a href="#" class="block hover:text-gray-300">Services</a></li>
