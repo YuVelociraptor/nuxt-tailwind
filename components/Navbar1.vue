@@ -19,7 +19,7 @@ const toggleMenu = () => {
 
       <!-- ハンバーガーメニュー（狭い画面用） -->
       <button
-          class="block lg:hidden p-2"
+          class="block sm:hidden p-2"
           @click="toggleMenu"
           :aria-expanded="isMenuOpen"
       >
@@ -40,7 +40,7 @@ const toggleMenu = () => {
       </button>
 
       <!-- メニュー項目（広い画面用） -->
-      <ul class="hidden lg:flex space-x-4">
+      <ul class="hidden sm:flex space-x-4">
         <li><a href="#" class="hover:text-gray-300">Home</a></li>
         <li><a href="#" class="hover:text-gray-300">About</a></li>
         <li><a href="#" class="hover:text-gray-300">Services</a></li>
@@ -51,7 +51,7 @@ const toggleMenu = () => {
     <!-- ハンバーガーメニューの展開部分 -->
     <ul
         v-if="isMenuOpen"
-        class="flex flex-col space-y-2 p-4 lg:hidden"
+        class="flex flex-col space-y-2 p-4 sm:hidden"
     >
       <li><a href="#" class="block hover:text-gray-300">Home</a></li>
       <li><a href="#" class="block hover:text-gray-300">About</a></li>
