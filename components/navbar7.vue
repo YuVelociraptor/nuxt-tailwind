@@ -13,10 +13,10 @@ const toggleMenu = () => {
 <template>
   <div class="bg-gray-800 text-white">
     <!-- ナビゲーションバー -->
-    <nav class="flex items-center p-4 md:justify-start">
+    <nav class="flex items-center p-4 sm:justify-start">
       <!-- ハンバーガーボタン（左側） -->
       <button
-          class="block md:hidden p-2 mr-4"
+          class="block sm:hidden p-2 mr-4"
           @click="toggleMenu"
           :aria-expanded="isMenuOpen"
       >
@@ -37,12 +37,12 @@ const toggleMenu = () => {
       </button>
 
       <!-- ロゴ -->
-      <div class="flex-grow md:flex-grow-0 flex justify-center md:justify-start">
+      <div class="flex-grow sm:flex-grow-0 flex justify-center sm:justify-start">
         <div class="text-xl font-bold">Logo</div>
       </div>
 
       <!-- メニュー項目（広い画面用） -->
-      <ul class="hidden md:flex space-x-4 ml-8">
+      <ul class="hidden sm:flex space-x-4 ml-8">
         <li><a href="#" class="hover:text-gray-300">Home</a></li>
         <li><a href="#" class="hover:text-gray-300">About</a></li>
         <li><a href="#" class="hover:text-gray-300">Services</a></li>
@@ -53,7 +53,7 @@ const toggleMenu = () => {
     <!-- ハンバーガーメニューの展開部分 -->
     <ul
         v-if="isMenuOpen"
-        class="flex flex-col space-y-2 p-4 md:hidden"
+        class="flex flex-col space-y-2 p-4 sm:hidden"
     >
       <li><a href="#" class="block hover:text-gray-300">Home</a></li>
       <li><a href="#" class="block hover:text-gray-300">About</a></li>
