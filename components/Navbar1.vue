@@ -8,6 +8,13 @@ const isMenuOpen = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
+const menuItems = [
+  { label: 'Home', href: '#' },
+  { label: 'About', href: '#' },
+  { label: 'Services', href: '#' },
+  { label: 'Contact', href: '#' },
+];
 </script>
 
 <template>
@@ -41,10 +48,9 @@ const toggleMenu = () => {
 
       <!-- メニュー項目（広い画面用） -->
       <ul class="hidden sm:flex space-x-4">
-        <li><a href="#" class="hover:text-gray-300">Home</a></li>
-        <li><a href="#" class="hover:text-gray-300">About</a></li>
-        <li><a href="#" class="hover:text-gray-300">Services</a></li>
-        <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+        <li v-for="item in menuItems" :key="item.label">
+          <a :href="item.href" class="hover:text-gray-300">{{ item.label }}</a>
+        </li>
       </ul>
     </nav>
 
@@ -53,10 +59,9 @@ const toggleMenu = () => {
         v-if="isMenuOpen"
         class="flex flex-col space-y-2 p-4 sm:hidden"
     >
-      <li><a href="#" class="block hover:text-gray-300">Home</a></li>
-      <li><a href="#" class="block hover:text-gray-300">About</a></li>
-      <li><a href="#" class="block hover:text-gray-300">Services</a></li>
-      <li><a href="#" class="block hover:text-gray-300">Contact</a></li>
+      <li v-for="item in menuItems" :key="item.label">
+        <a :href="item.href" class="hover:text-gray-300">{{ item.label }}</a>
+      </li>
     </ul>
   </div>
 </template>
